@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<section class="hero-panel">
+    <div class="hero-copy">
+        <span class="eyebrow">Sistema bibliotecario</span>
+        <h1>Todo el catálogo,<br />en un solo lugar.</h1>
+        <p>Administra libros y socios, consulta préstamos y mantén la información de la biblioteca organizada.</p>
+        <div class="d-flex flex-wrap gap-2">
+            <a asp-controller="Libros" asp-action="Index" class="btn btn-light btn-lg">Ver catálogo</a>
+            <a asp-controller="Libros" asp-action="Create" class="btn btn-outline-light btn-lg">Registrar libro</a>
+        </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+        <div class="book book-one"></div><div class="book book-two"></div><div class="book book-three"></div><div class="book book-four"></div>
+    </div>
+</section>
+
+<section class="quick-section">
+    <div class="section-heading">
+        <div><span class="eyebrow text-primary">Accesos rápidos</span><h2>¿Qué deseas hacer?</h2></div>
+        <p>Selecciona una opción para comenzar.</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <a asp-controller="Libros" asp-action="Index" class="action-card">
+                <span class="action-icon">01</span><h3>Catálogo de libros</h3>
+                <p>Busca títulos, consulta detalles y administra los ejemplares disponibles.</p><span class="card-link">Ir a libros <b>→</b></span>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Socios" asp-action="Index" class="action-card">
+                <span class="action-icon">02</span><h3>Registro de socios</h3>
+                <p>Consulta los socios activos y registra nuevos miembros de la biblioteca.</p><span class="card-link">Ir a socios <b>→</b></span>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Prestamos" asp-action="Reporte" class="action-card">
+                <span class="action-icon">03</span><h3>Reporte de préstamos</h3>
+                <p>Revisa los préstamos realizados dentro de un intervalo de fechas.</p><span class="card-link">Ver reporte <b>→</b></span>
+            </a>
+        </div>
+    </div>
+</section>

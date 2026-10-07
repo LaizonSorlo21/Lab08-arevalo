@@ -1,0 +1,50 @@
+@model IEnumerable<PrestamoReporte>
+@{
+    ViewData["Title"] = "Reporte de préstamos";
+}
+
+<h1>Reporte de préstamos</h1>
+
+<form method="get" asp-action="Reporte" class="row g-2 align-items-end mb-3">
+    <div class="col-auto">
+        <label for="desde" class="form-label">Desde</label>
+        <input type="date" id="desde" name="desde" value="@ViewData["Desde"]" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <label for="hasta" class="form-label">Hasta</label>
+        <input type="date" id="hasta" name="hasta" value="@ViewData["Hasta"]" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+</form>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Socio</th>
+            <th>Libro</th>
+            <th>Fecha de préstamo</th>
+            <th>Fecha límite</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Socio</td>
+                <td>@p.Libro</td>
+                <td>@p.FechaPrestamo.ToString("dd/MM/yyyy")</td>
+                <td>@p.FechaLimite.ToString("dd/MM/yyyy")</td>
+                <td>@p.Estado</td>
+            </tr>
+        }
+        @if (!Model.Any())
+        {
+            <tr><td colspan="5" class="text-center text-muted">No hay préstamos en el rango seleccionado.</td></tr>
+        }
+    </tbody>
+</table>
